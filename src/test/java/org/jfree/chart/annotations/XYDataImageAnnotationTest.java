@@ -44,8 +44,6 @@ class XYDataImageAnnotationTest {
                 defaultImage, defaultValue, defaultValue, defaultValue, defaultValue
         );
 
-
-
         g2 = getGraphics2D();
         plot = new XYPlot();
         rectangle2D = getRectangle2D();
@@ -590,14 +588,14 @@ class XYDataImageAnnotationTest {
                 defaultImage, defaultValue, defaultValue, defaultValue, defaultValue
         );
 
-        assertTrue(xyDataImageAnnotation.equals(xyDataImageAnnotation));
-        assertFalse(xyDataImageAnnotation.equals(xy2));
-        assertFalse(xyDataImageAnnotation.equals(xyWithDifferentX));
-        assertFalse(xyDataImageAnnotation.equals(xyWithDifferentY));
-        assertFalse(xyDataImageAnnotation.equals(xyWithDifferentW));
-        assertFalse(xyDataImageAnnotation.equals(xyWithDifferentH));
-        assertFalse(xyDataImageAnnotation.equals(xyWithDifferentImage));
-        assertTrue(xyDataImageAnnotation.equals(xyDifferentInstance));
+        assertEquals(xyDataImageAnnotation, xyDataImageAnnotation);
+        assertNotEquals(xyDataImageAnnotation, xy2);
+        assertNotEquals(xyDataImageAnnotation, xyWithDifferentX);
+        assertNotEquals(xyDataImageAnnotation, xyWithDifferentY);
+        assertNotEquals(xyDataImageAnnotation, xyWithDifferentW);
+        assertNotEquals(xyDataImageAnnotation, xyWithDifferentH);
+        assertNotEquals(xyDataImageAnnotation, xyWithDifferentImage);
+        assertEquals(xyDataImageAnnotation, xyDifferentInstance);
     }
 
     @Test
@@ -648,7 +646,7 @@ class XYDataImageAnnotationTest {
     }
 
     @Test
-    void canDraw(){
+    void canDraw() {
         xyDataImageAnnotation.draw(
                 g2, plot, rectangle2D,
                 domainAxis, rangeAxis,
@@ -658,7 +656,7 @@ class XYDataImageAnnotationTest {
     }
 
     @Test
-    void canDrawWithHorizontalOrientation(){
+    void canDrawWithHorizontalOrientation() {
         plot.setOrientation(PlotOrientation.HORIZONTAL);
         xyDataImageAnnotation.draw(
                 g2, plot, rectangle2D,
@@ -669,7 +667,7 @@ class XYDataImageAnnotationTest {
     }
 
     @Test
-    void canDrawWithTooltip(){
+    void canDrawWithTooltip() {
         xyDataImageAnnotation.setToolTipText("testTooltip");
         xyDataImageAnnotation.draw(
                 g2, plot, rectangle2D,
